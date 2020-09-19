@@ -6,13 +6,14 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class token extends JPanel {
+	
+	private static final long serialVersionUID= 1L;
 
     // fields:
     public static final int DIAMETER= 60;
 
-    // the color of this piece:
-    public Color color;
-    public Color shadowcolor;
+    public Color color; // the color of this piece
+    public Color shadowcolor; //the color of the shadow of this piece
 
     // Constructor
     public token(Color color) {
