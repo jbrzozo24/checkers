@@ -16,20 +16,15 @@ public class square extends JPanel {
     public static final int WIDTH= 70;
     public static Color graysquare= Color.GRAY;
     public static Color darkgraysquare= Color.DARK_GRAY;
-    // the color of this square
-    public Color color;
-    // true if this square has an object of class token on it.
-    public boolean hasPiece= false;
-    // the x-position of this square
-    public int x;
-    // the y-position of this square
-    public int y;
-    // the checkers piece on this square, null if none
-    public token piece;
-    // true if the square is selected
-    public boolean selected;
+    
+    public Color color; // the color of this square
+    public boolean hasPiece= false; // true if this square has an object of class token on it.
+    public int x; // the x-position of this square
+    public int y; // the y-position of this square
+    public token piece; // the checkers piece on this square, null if none
+    public boolean selected; // true if the square is selected
 
-    /** Constructor for class Square, constructs a square with coordinates (x,y)<br>
+    /** Constructor for class square, constructs a square with coordinates (x,y)<br>
      * and button with same coordinates. */
     public square(int x, int y) {
         super();
@@ -41,7 +36,10 @@ public class square extends JPanel {
         else color= darkgraysquare;
 
     }
-
+    /**
+     * Constructor for class square, constructs a square with coordinates (x,y) <br>
+     * and a button with same coordinates. Adds a game piece to the square
+     */
     public square(int x, int y, token piece) {
         super();
         this.x= x;
@@ -56,6 +54,9 @@ public class square extends JPanel {
         }
     }
 
+    /**
+     * Called by MouseClicked if a square was clicked on
+     */
     public void clicked() {
         if (checkers.isValidpiece(this)) {
             selected= !selected;

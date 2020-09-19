@@ -2,8 +2,10 @@ package checkers;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
+
+
+/** This class is used to create game tokens on the checker board */
 
 public class token extends JPanel {
 	
@@ -14,6 +16,8 @@ public class token extends JPanel {
 
     public Color color; // the color of this piece
     public Color shadowcolor; //the color of the shadow of this piece
+    public Boolean isKing; //true if this piece has been King'ed
+    public Boolean isJumped; //true if this piece has been jumped over
 
     // Constructor
     public token(Color color) {
