@@ -33,8 +33,8 @@ public class square extends JPanel {
         this.selected= false;
         this.hasPiece= false;
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
-        if ((x + y) % 2 == 0) color= graysquare;
-        else color= darkgraysquare;
+        if ((x + y) % 2 == 0) this.color= graysquare;
+        else this.color= darkgraysquare;
 
     }
     /**
@@ -48,8 +48,8 @@ public class square extends JPanel {
         selected= false;
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
         if ((x + y) % 2 == 0) color= graysquare;
-        else color= darkgraysquare;
-        if (color == darkgraysquare) {
+        else this.color= darkgraysquare;
+        if (this.color == darkgraysquare) {
             hasPiece= true;
             this.piece= piece;
             piece.location=this; //tell the piece its location
@@ -59,16 +59,21 @@ public class square extends JPanel {
     /**
      * Called by MouseClicked if a square was clicked on
      */
-    public void clicked() {
-        if (checkers.isValidpiece(this)) {
+    public void clicked(checkers game) {
+    	square selectedSquare= game.squareSelected();
+        if (game.isValidpiece(this)) {
             this.selected= !(this.selected);
         	if (selected) {
-        		color= color.brighter();
+        		this.color= this.color.brighter();
         		this.piece.isSelected=true; 
         	} else {
-        		color= color.darker();
+        		this.color= this.color.darker();
         		this.piece.isSelected=false;
         	}
+        } else if(selectedSquare!=null && this.hasPiece==false) {
+        	selectedSquare.piece.movePiece(selectedSquare,this); //Move piece from the selected square to the square just clicked on
+        	selectedSquare.Piece=null; //remove piece from this square
+        	selectedSquare.hasPiece=false; //update 
         }
         repaint();
     }

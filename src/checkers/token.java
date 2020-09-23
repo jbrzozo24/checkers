@@ -25,11 +25,17 @@ public class token extends JPanel {
     public token(Color color){
         super();
         this.color= color;
-        shadowcolor= color.darker();
+        this.shadowcolor= color.darker();
+        this.isKing=false;
+        this.isJumped=false;
+        this.isSelected=false;
+        this.location=null; 
         
     }
     
-    
+    public void movePiece(square from, square to) {
+    	
+    }
     
 
     @Override

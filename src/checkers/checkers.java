@@ -33,6 +33,7 @@ public class checkers extends JFrame {
     // Constructor:
     public checkers() {
         super("Checkers");
+        me.game=this;
         addComponents();
         setVisible(true);
         setResizable(false);
@@ -120,10 +121,20 @@ public class checkers extends JFrame {
     // Methods to actually play the game.
 
     // returns true if the token clicked on is a valid token to move.
-    public static boolean isValidpiece(square sq) {
+    public boolean isValidpiece(square sq) {
         // TODO 1 NOT FINISHED
         if (sq.hasPiece) { return true; }
         return false;
+    }
+    
+    //Returns the square that is selected, null if none selected
+    public square squareSelected() {
+    	for(int row= 0; row < 8; row++) {
+    		for(int col= 0; col < 8; col++) {
+    			if (array[row][col].selected) { return array[row][col]; } 
+    		}
+    	}
+    	return null;
     }
 
 }

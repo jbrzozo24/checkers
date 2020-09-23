@@ -4,13 +4,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputAdapter;
 
 public class MouseEvents extends MouseInputAdapter {
+	
+	public checkers game; //the game being played
 
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO 1
         Object ob= e.getSource(); //ob is the object that was clicked
         if (ob instanceof square) { //check to make sure it is a square before casting
-            ((square) ob).clicked(); //call clicked 
+            ((square) ob).clicked(game); //call clicked 
         }
     }
 
