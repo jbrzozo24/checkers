@@ -16,16 +16,21 @@ public class token extends JPanel {
 
     public Color color; // the color of this piece
     public Color shadowcolor; //the color of the shadow of this piece
-    public Boolean isKing; //true if this piece has been King'ed
+    public Boolean isKing=false; //true if this piece has been King'ed
     public Boolean isJumped; //true if this piece has been jumped over
+    public Boolean isSelected=false; //true if this piece is selected by the user
+    public square location; //The square that this token is on
 
     // Constructor
-    public token(Color color) {
+    public token(Color color){
         super();
         this.color= color;
         shadowcolor= color.darker();
-
+        
     }
+    
+    
+    
 
     @Override
     public void paint(Graphics g) {

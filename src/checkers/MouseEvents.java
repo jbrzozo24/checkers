@@ -8,16 +8,20 @@ public class MouseEvents extends MouseInputAdapter {
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO 1
-        Object ob= e.getSource();
-        if (ob instanceof square) {
-            ((square) ob).clicked();
+        Object ob= e.getSource(); //ob is the object that was clicked
+        if (ob instanceof square) { //check to make sure it is a square before casting
+            ((square) ob).clicked(); //call clicked 
         }
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
         // TODO 2
-        System.out.println("Mouse Entered");
+    	Object ob= e.getSource();
+    	if(ob instanceof square) {
+    		System.out.println(((square) ob).toString());
+    	}
+        //System.out.println("Mouse Entered");
     }
 
     @Override
