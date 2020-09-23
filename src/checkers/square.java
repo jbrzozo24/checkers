@@ -72,8 +72,9 @@ public class square extends JPanel {
         	}
         } else if(selectedSquare!=null && this.hasPiece==false) {
         	selectedSquare.piece.movePiece(selectedSquare,this); //Move piece from the selected square to the square just clicked on
-        	selectedSquare.Piece=null; //remove piece from this square
-        	selectedSquare.hasPiece=false; //update 
+        	selectedSquare.selected= false; 
+        	this.selected=false; //unselect both squares since the move has completed
+        	selectedSquare.repaint(); 
         }
         repaint();
     }

@@ -33,8 +33,13 @@ public class token extends JPanel {
         
     }
     
+    //Moves this piece from one square to another
     public void movePiece(square from, square to) {
-    	
+    	this.location= to; //update square location
+    	from.piece=null;
+    	from.hasPiece=false;
+    	to.piece=this;
+    	to.hasPiece=true;
     }
     
 
