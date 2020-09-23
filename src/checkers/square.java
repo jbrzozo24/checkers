@@ -78,6 +78,23 @@ public class square extends JPanel {
         }
         repaint();
     }
+    
+    //Helper to select this square
+    public void select() {
+    	this.color=this.color.brighter();
+    }
+    
+    //Helper to unselect this square
+    public void unselect() {
+    	this.color=this.color.darker();
+    }
+    
+    //Helper to toggle the select on this square
+    public void toggleselect() {
+    	this.selected= !(this.selected);
+    	if(selected) {this.color=this.color.brighter();}
+    	else {this.color=this.color.darker();}
+    }
 
     @Override
     public void paint(Graphics g) {
