@@ -30,7 +30,12 @@ public class token extends JPanel {
         this.isJumped=false;
         this.isSelected=false;
         this.location=null; 
-        
+    }
+    
+    //gets the x and y position of this token
+    public int[] getCoords() {
+    	//TODO
+    	return null;
     }
     
     //Moves this piece from one square to another

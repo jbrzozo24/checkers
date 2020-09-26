@@ -63,7 +63,7 @@ public class square extends JPanel {
     	square selectedSquare= game.squareSelected();
         if (game.isValidpiece(this)) {
             this.selected= !(this.selected);
-        	if (selected) {
+        	if (this.selected) {
         		this.color= this.color.brighter();
         		this.piece.isSelected=true; 
         	} else {
@@ -72,8 +72,8 @@ public class square extends JPanel {
         	}
         } else if(selectedSquare!=null && this.hasPiece==false) {
         	selectedSquare.piece.movePiece(selectedSquare,this); //Move piece from the selected square to the square just clicked on
-        	selectedSquare.selected= false; 
-        	this.selected=false; //unselect both squares since the move has completed
+        	this.unselect();
+        	selectedSquare.unselect();//unselect both squares since the move has completed
         	selectedSquare.repaint(); 
         }
         repaint();
@@ -81,18 +81,24 @@ public class square extends JPanel {
     
     //Helper to select this square
     public void select() {
-    	this.color=this.color.brighter();
+    	if(!this.selected) {
+    		this.selected=true;
+    		this.color=this.color.brighter();
+    	}
     }
     
     //Helper to unselect this square
     public void unselect() {
-    	this.color=this.color.darker();
+    	if(this.selected) {
+    		this.selected=false;
+    		this.color=this.color.darker();
+    	}
     }
     
     //Helper to toggle the select on this square
     public void toggleselect() {
     	this.selected= !(this.selected);
-    	if(selected) {this.color=this.color.brighter();}
+    	if(this.selected) {this.color=this.color.brighter();}
     	else {this.color=this.color.darker();}
     }
 
